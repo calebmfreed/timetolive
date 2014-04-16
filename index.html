@@ -7,11 +7,29 @@
 	<div id="circle">
 		<div id="title">
 			TIME TO LIVE
-			<input type="text" class = "enter" placeholder ="Your Age">
-			<input type="text" class = "enter" placeholder ="Country and City">
+				<form name="input" onsubmit="return submit();">
+					<input type="text" id="age" class="enter" placeholder="Your Age">
+					<input type="text" id="location" class="enter" placeholder="Country and City">
+					<br>
+					<input type="submit" value="Submit">
+				</form>
 		</div>
 	</div>
 	<div id="rect">
 	</div>
 </body>
+<script>
+	function submit()
+	{
+		var age = document.getElementById('age').value;
+		var location = document.getElementById('location').value;
+		swapall();
+		return false;
+	}
+
+	function swapall()
+	{
+		
+	}
+</script>
 </html>
