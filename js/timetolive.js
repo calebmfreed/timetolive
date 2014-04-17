@@ -27,7 +27,7 @@ function buildVis() {
  * @return {int}           perceived age as an integer
  */
 function calcPerceivedAge(age, maxAge) {
-  var percievedAge = ( (maxAge * (Math.log(age-5))) / (Math.log(maxAge) ) );
+  var percievedAge = ( (maxAge * (Math.log(age-6))) / (Math.log(maxAge-5) ) );
   return percievedAge;
 }
 
@@ -127,7 +127,7 @@ $(function() {
       var slider = $( "#pline" ).slider({
       range: "max",
       min: 6,
-      max: 100,
+      max: 76,
       value: 0,
       slide: function( event, ui ) {
         console.log(ui.value);
@@ -137,7 +137,7 @@ $(function() {
       $( "#rline" ).slider({
       range: "max",
       min: 6,
-      max: 100,
+      max: 80,
       value: 0,
       slide: function( event, ui ) {
         console.log(ui.value);
