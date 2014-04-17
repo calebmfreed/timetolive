@@ -1,14 +1,17 @@
+var age = 6;
+
 $( document ).ready(function() {
-  $( "#info" ).submit(function(event) {
     event.preventDefault();
     buildVis();
-  });
+    startTime();
+    startTimePerceived();
 });
 
 function buildVis() {
-  var age = getAge();
+  age = getAge();
+  console.log(age);
   // TODO: Get max age based on location. Ignoring `loc` for now.
-  var loc = getLocation();
+  //var loc = getLocation();
 
   // TODO: Remove hard coded 80 and base off of country.
   var perceivedAge = calcPerceivedAge(age, 80);
@@ -19,6 +22,8 @@ function buildVis() {
   // You can keep HTML in index.html but just keep it hidden and upon this function being called,
   // replace the entire body with that new HTML which will contain the visualization.
 }
+
+
 
 /**
  * Calculates perceived age given current age and max expected age for country
@@ -36,29 +41,33 @@ function calcPerceivedAge(age, maxAge) {
  * @return {int} the age as int; null if empty
  */
 function getAge() {
-  var age = $("#age").val();
-  if (age !== "") {
-    console.log(age);
-    return parseInt(age);
-  }
-  else {
-    return null;
-  }
+    var locate = window.location
+    document.information.age.value = locate
+
+    var text = document.information.age.value
+
+    function delineate(str)
+    {
+        theleft = str.indexOf("=") + 1;
+        theright = str.lastIndexOf("&");
+      return(str.substring(theleft, theright));
+    }
+    return(delineate(text));
 }
 
 /**
  * Get location from form
  * @return {string} location as string; null if empty
  */
-function getLocation() {
-  var loc = $("#location").val();
-  if (loc !== "") {
-    return loc;
-  }
-  else {
-    return null;
-  }
-}
+// function getLocation() {
+//   var loc = $("#location").val();
+//   if (loc !== "") {
+//     return loc;
+//   }
+//   else {
+//     return null;
+//   }
+// }
 
 function startTime()
 {
@@ -116,19 +125,17 @@ document.getElementById('p_clock_time').innerHTML=h+":"+um+":"+us;
 t=setTimeout(function(){updateTimePerceived(h,m,s)},300);
 }
 
-$( document ).ready(function() {
-    startTime();
-    startTimePerceived();
-});
-
 $(function() {
     // $( "#rline" ).slider();
+    var userage=getAge();
+    var intage=parseInt(userage);
+    console.log("things"+age);
     var link = 0;
       var slider = $( "#pline" ).slider({
       range: "max",
       min: 6,
-      max: 76,
-      value: 0,
+      max: 80,
+      value: calcPerceivedAge(intage, 80),
       slide: function( event, ui ) {
         console.log(ui.value);
               }
@@ -138,11 +145,11 @@ $(function() {
       range: "max",
       min: 6,
       max: 80,
-      value: 0,
+      value: intage,
       slide: function( event, ui ) {
         console.log(ui.value);
         link = ui.value; 
-        slider.slider( "value", calcPerceivedAge(ui.value, 75) );
+        slider.slider( "value", calcPerceivedAge(ui.value, 80) );
         $( "#amount" ).val( ui.value );     }
     });
 
