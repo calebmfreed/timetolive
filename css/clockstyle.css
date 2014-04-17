@@ -98,3 +98,13 @@ body {
 #p_clock_time {
     font-size: 4em;
 }
+
+.wrapper div {
+        margin: 35px 0;
+}
+
+.wrapper {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+}

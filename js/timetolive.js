@@ -38,6 +38,7 @@ function calcPerceivedAge(age, maxAge) {
 function getAge() {
   var age = $("#age").val();
   if (age !== "") {
+    console.log(age);
     return parseInt(age);
   }
   else {
@@ -118,4 +119,34 @@ t=setTimeout(function(){updateTimePerceived(h,m,s)},300);
 $( document ).ready(function() {
     startTime();
     startTimePerceived();
+});
+
+$(function() {
+    // $( "#rline" ).slider();
+    var link = 0;
+      var slider = $( "#pline" ).slider({
+      range: "max",
+      min: 6,
+      max: 100,
+      value: 0,
+      slide: function( event, ui ) {
+        console.log(ui.value);
+              }
+    });
+
+      $( "#rline" ).slider({
+      range: "max",
+      min: 6,
+      max: 100,
+      value: 0,
+      slide: function( event, ui ) {
+        console.log(ui.value);
+        link = ui.value; 
+        slider.slider( "value", calcPerceivedAge(ui.value, 75) );
+        $( "#amount" ).val( ui.value );     }
+    });
+
+    $( "#amount" ).val($( "#rline" ).slider( "value" ) );
+
+
 });
