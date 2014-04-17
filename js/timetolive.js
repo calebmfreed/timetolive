@@ -27,9 +27,8 @@ function buildVis() {
  * @return {int}           perceived age as an integer
  */
 function calcPerceivedAge(age, maxAge) {
-  // TODO: Calculate perceived age using numerical integral
-  // See    http://en.wikipedia.org/wiki/Numerical_integration#Quadrature_rules_based_on_interpolating_functions
-  return age;
+  var percievedAge = ( (maxAge * (Math.log(age-5))) / (Math.log(maxAge) );)
+  return percievedAge;
 }
 
 /**
