@@ -27,7 +27,7 @@ function buildVis() {
  * @return {int}           perceived age as an integer
  */
 function calcPerceivedAge(age, maxAge) {
-  var percievedAge = ( (maxAge * (Math.log(age-5))) / (Math.log(maxAge) );)
+  var percievedAge = ( (maxAge * (Math.log(age-5))) / (Math.log(maxAge) ) );
   return percievedAge;
 }
 
