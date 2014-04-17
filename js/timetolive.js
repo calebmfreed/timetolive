@@ -58,3 +58,64 @@ function getLocation() {
     return null;
   }
 }
+
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('r_clock_time').innerHTML=h+":"+m+":"+s;
+t=setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+
+
+function startTimePerceived()
+{
+var today=new Date();
+h=today.getHours();
+m=today.getMinutes();
+s=today.getSeconds();
+// add a zero in front of numbers<10
+um=checkTime(m);
+us=checkTime(s);
+document.getElementById('p_clock_time').innerHTML=h+":"+um+":"+us;
+t=setTimeout(function(){updateTimePerceived(h,m,s)},300);
+}
+
+function updateTimePerceived(h, m, s)
+{
+s++;
+if (s == 60) {
+    s = 0;
+    m++;
+}
+if (m == 60) {
+    m = 0;
+    h++;
+} 
+if (h == 24) {
+    h = 0;
+}
+um = checkTime(m);
+us = checkTime(s);
+document.getElementById('p_clock_time').innerHTML=h+":"+um+":"+us;
+t=setTimeout(function(){updateTimePerceived(h,m,s)},300);
+}
+
+$( document ).ready(function() {
+    startTime();
+    startTimePerceived();
+});
