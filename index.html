@@ -1,35 +1,26 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<link rel="stylesheet" href = "livestyle.css">
+  <link rel="stylesheet" href = "css/style.css">
 </head>
 <body>
-	<div id="circle">
-		<div id="title">
-			TIME TO LIVE
-				<form name="input" onsubmit="return submit();">
-					<input type="text" id="age" class="enter" placeholder="Your Age">
-					<input type="text" id="location" class="enter" placeholder="Country and City">
-					<br>
-					<input type="submit" value="Submit">
-				</form>
-		</div>
-	</div>
-	<div id="rect">
-	</div>
-</body>
-<script>
-	function submit()
-	{
-		var age = document.getElementById('age').value;
-		var location = document.getElementById('location').value;
-		swapall();
-		return false;
-	}
 
-	function swapall()
-	{
-		
-	}
-</script>
+  <div id="circle">
+    <div id="title">
+      TIME TO LIVE
+        <form id="info">
+          <input type="text" id="age" class="enter" placeholder="Your Age">
+          <input type="text" id="location" class="enter" placeholder="Country and City">
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+    </div>
+  </div>
+  <div id="rect">
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/timetolive.js"></script>
+
+</body>
 </html>

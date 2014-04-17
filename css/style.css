@@ -43,12 +43,12 @@ body{
 
 .enter
 {
-	height: 23px; 
-	width: 150px; 
-	padding: 3px 5px 3px 5px; 
-	border-style: none; 
+	height: 23px;
+	width: 150px;
+	padding: 3px 5px 3px 5px;
+	border-style: none;
 	color:white;
-	background-image: url('textbackground.png'); 
+	background-image: url('../img/textbackground.png');
 	background-repeat: none;
 	font-size: 14px;
 }
